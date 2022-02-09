@@ -1,0 +1,10 @@
+body {
+  background-color: lightblue;
+  background-image: url("boston.jpeg");
+}
+h1 {
+  color: white;
+  margin-left: 25px;
+}
+div {
+}

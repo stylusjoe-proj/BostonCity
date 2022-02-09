@@ -1,18 +1,13 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./mystyles.css">
-</head>
+
+<link rel="stylesheet" href="./mystyles.css">
+
 <script>
+    // data[8] is the name, data[18] is salary
     let url = "https://pollysnips.s3.amazonaws.com/bostonEmployeeSalaries.json"
     fetch(url).then((response) => response.json())
         .then(json => {
-            data = json
-            //writeData(JSON.stringify(data.data[0]))
-            analyzeData(data)
+            data = json;
+            analyzeData(data);
         })
         .catch(error => {
             throw(error);
@@ -29,7 +24,7 @@
         writeData(maxSalary)
     }
     function writeData(data){
-        document.getElementById("data").innerHTML += JSON.stringify(data)+"<br>";
+        document.getElementById("data").innerHTML += "<h1>"+JSON.stringify(data)+"</h1> <br>";
     }
 </script>
 <body>
