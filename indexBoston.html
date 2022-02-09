@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./mystyles.css">
+</head>
+<script>
+    let url = "https://pollysnips.s3.amazonaws.com/bostonEmployeeSalaries.json"
+    fetch(url).then((response) => response.json())
+        .then(json => {
+            data = json
+            //writeData(JSON.stringify(data.data[0]))
+            analyzeData(data)
+        })
+        .catch(error => {
+            throw(error);
+        })
+    function analyzeData(data){
+        // get max salary
+        let maxSalary = {name:"", salary:0};
+        data.data.forEach((item)=>{
+            if(parseInt(item[18])>=maxSalary.salary){
+                maxSalary.name = item[8]
+                maxSalary.salary = parseInt(item[18])
+            }
+        })
+        writeData(maxSalary)
+    }
+    function writeData(data){
+        document.getElementById("data").innerHTML += JSON.stringify(data)+"<br>";
+    }
+</script>
+<body>
+    <h1>Hello Boston City Most Valued Worker</h1>
+    <div id="data">
+
+    </div>
+</body>
+</html>
