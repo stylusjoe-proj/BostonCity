@@ -1,7 +1,7 @@
 <script>
     // get data from url 
-    // let url ="https://pollysnips.s3.amazonaws.com/bostonEmployeeSalaries.json"
-    let url ="https://pollysnips.s3.amazonaws.com/contacts.json"
+    let url ="https://pollysnips.s3.amazonaws.com/bostonEmployeeSalaries.json"
+    // let url ="https://pollysnips.s3.amazonaws.com/contacts.json"
     fetch(url).then((response) => response.json())
         .then(json => {
             data = json
